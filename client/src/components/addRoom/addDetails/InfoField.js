@@ -1,9 +1,8 @@
-import { Avatar, InputAdornment, TextField } from "@mui/material";
-import React, { useState } from "react";
-import { useValue } from "../../../context/ContextProvider";
-
-import pendingIcon from "./icons/progress1.svg";
-import { Check } from "@mui/icons-material";
+import { Avatar, InputAdornment, TextField } from '@mui/material';
+import React, { useState } from 'react';
+import { useValue } from '../../../context/ContextProvider';
+import pendingIcon from './icons/progress1.svg';
+import { Check } from '@mui/icons-material';
 
 let timer;
 const InfoField = ({ mainProps, optionalProps = {}, minLength }) => {
@@ -14,7 +13,7 @@ const InfoField = ({ mainProps, optionalProps = {}, minLength }) => {
 
   const handleChange = (e) => {
     dispatch({
-      type: "UPDATE_DETAILS",
+      type: 'UPDATE_DETAILS',
       payload: { [e.target.name]: e.target.value },
     });
     if (!editing) setEditing(true);
@@ -36,7 +35,7 @@ const InfoField = ({ mainProps, optionalProps = {}, minLength }) => {
       {...optionalProps}
       error={error}
       helperText={error && `This field must be ${minLength} characters or more`}
-      color={success ? "success" : "primary"}
+      color={success ? 'success' : 'primary'}
       variant="outlined"
       onChange={handleChange}
       required

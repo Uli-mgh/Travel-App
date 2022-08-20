@@ -1,8 +1,7 @@
-import MapBoxGeocoder from "@mapbox/mapbox-gl-geocoder";
-import { useControl } from "react-map-gl";
-import { useValue } from "../../../context/ContextProvider";
-
-import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import MapBoxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import { useControl } from 'react-map-gl';
+import { useValue } from '../../../context/ContextProvider';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
 const Geocoder = () => {
   const { dispatch } = useValue();
@@ -12,10 +11,10 @@ const Geocoder = () => {
     collapsed: true,
   });
   useControl(() => ctrl);
-  ctrl.on("result", (e) => {
+  ctrl.on('result', (e) => {
     const coords = e.result.geometry.coordinates;
     dispatch({
-      type: "UPDATE_LOCATION",
+      type: 'UPDATE_LOCATION',
       payload: { lng: coords[0], lat: coords[1] },
     });
   });

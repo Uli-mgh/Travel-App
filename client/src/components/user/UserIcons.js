@@ -1,13 +1,12 @@
-import { Mail, Notifications } from "@mui/icons-material";
-import { Avatar, Badge, Box, IconButton, Tooltip } from "@mui/material";
-import React, { useState } from "react";
-import { useValue } from "../../context/ContextProvider";
-import useCheckToken from "../../hooks/useCheckToken";
-import UserMenu from "./UserMenu";
+import { Mail, Notifications } from '@mui/icons-material';
+import { Avatar, Badge, Box, IconButton, Tooltip } from '@mui/material';
+import React, { useState } from 'react';
+import { useValue } from '../../context/ContextProvider';
+import useCheckToken from '../../hooks/useCheckToken';
+import UserMenu from './UserMenu';
 
 const UserIcons = () => {
   useCheckToken();
-
   const {
     state: { currentUser },
   } = useValue();

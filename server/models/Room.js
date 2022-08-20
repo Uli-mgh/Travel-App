@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const roomSchema = mongoose.Schema(
   {
@@ -18,10 +18,11 @@ const roomSchema = mongoose.Schema(
     },
     uid: { type: String, required: true },
     uName: { type: String, required: true },
-    uPhoto: { type: String, default: "" },
+    uPhoto: { type: String, default: '' },
   },
   { timestamps: true }
 );
 
-const Room = mongoose.model("rooms", roomSchema);
+const Room = mongoose.model('rooms', roomSchema);
+
 export default Room;

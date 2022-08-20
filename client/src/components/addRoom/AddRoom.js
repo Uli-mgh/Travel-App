@@ -1,4 +1,4 @@
-import { Send } from "@mui/icons-material";
+import { Send } from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -7,14 +7,13 @@ import {
   Step,
   StepButton,
   Stepper,
-} from "@mui/material";
-import React, { useEffect, useState } from "react";
-import { createRoom } from "../../actions/room";
-import { useValue } from "../../context/ContextProvider";
-// import { useValue } from "../../context/ContextProvider";
-import AddDetails from "./addDetails/AddDetails";
-import AddImages from "./addImages/AddImages";
-import AddLocation from "./addLocation/AddLocation";
+} from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { useValue } from '../../context/ContextProvider';
+import AddDetails from './addDetails/AddDetails';
+import AddImages from './addImages/AddImages';
+import AddLocation from './addLocation/AddLocation';
+import { createRoom } from '../../actions/room';
 
 const AddRoom = ({ setPage }) => {
   const {
@@ -23,13 +22,11 @@ const AddRoom = ({ setPage }) => {
   } = useValue();
   const [activeStep, setActiveStep] = useState(0);
   const [steps, setSteps] = useState([
-    { label: "Location", completed: false },
-    { label: "Details", completed: false },
-    { label: "Images", completed: false },
+    { label: 'Location', completed: false },
+    { label: 'Details', completed: false },
+    { label: 'Images', completed: false },
   ]);
-
   const [showSubmit, setShowSubmit] = useState(false);
-
   const handleNext = () => {
     if (activeStep < steps.length - 1) {
       setActiveStep((activeStep) => activeStep + 1);
@@ -75,14 +72,12 @@ const AddRoom = ({ setPage }) => {
       return [...steps];
     });
   };
-
   useEffect(() => {
     if (findUnfinished() === -1) {
       if (!showSubmit) setShowSubmit(true);
     } else {
       if (showSubmit) setShowSubmit(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [steps]);
 
   const handleSubmit = () => {
@@ -96,7 +91,6 @@ const AddRoom = ({ setPage }) => {
     };
     createRoom(room, currentUser, dispatch, setPage);
   };
-
   return (
     <Container sx={{ my: 4 }}>
       <Stepper
@@ -122,10 +116,7 @@ const AddRoom = ({ setPage }) => {
           }[activeStep]
         }
 
-        <Stack
-          direction="row"
-          sx={{ pt: 2, pb: 7, justifyContent: "space-around" }}
-        >
+        <Stack direction="row" sx={{ pt: 2, justifyContent: 'space-around' }}>
           <Button
             color="inherit"
             disabled={!activeStep}
@@ -138,7 +129,7 @@ const AddRoom = ({ setPage }) => {
           </Button>
         </Stack>
         {showSubmit && (
-          <Stack sx={{ alignItems: "center" }}>
+          <Stack sx={{ alignItems: 'center' }}>
             <Button
               variant="contained"
               endIcon={<Send />}
